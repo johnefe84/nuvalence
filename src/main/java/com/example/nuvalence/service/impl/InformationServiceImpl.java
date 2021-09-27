@@ -5,6 +5,10 @@ import com.example.nuvalence.dto.RectangleDTO;
 import com.example.nuvalence.service.InformationService;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 @Component
 public class InformationServiceImpl implements InformationService {
     
@@ -41,7 +45,8 @@ public class InformationServiceImpl implements InformationService {
                 isContained(rectangleBx1, rectangleBx2, rectangleBy1, rectangleBy2, rectangleAx1, rectangleAx2, rectangleAy1, rectangleAy2);
 
         if(intersected){
-            response = response.concat("intersected, ");
+            String intersectedPoints = findIntersectionsPoints(rectangleAx1, rectangleAx2, rectangleAy1, rectangleAy2, rectangleBx1, rectangleBx2, rectangleBy1, rectangleBy2);
+            response = response.concat("intersected in points: "+intersectedPoints);
             coincidence++;
         }
         else{
@@ -125,5 +130,38 @@ public class InformationServiceImpl implements InformationService {
             adjacented = true;
         }
         return adjacented;
+    }
+
+    private String findIntersectionsPoints(Integer rectangleAx1, Integer rectangleAx2, Integer rectangleAy1, Integer rectangleAy2,
+                                           Integer rectangleBx1, Integer rectangleBx2, Integer rectangleBy1, Integer rectangleBy2){
+        String points = "";
+
+        List<Integer> xAxis = new ArrayList<>();
+        xAxis.add(rectangleAx1);
+        xAxis.add(rectangleAx2);
+        xAxis.add(rectangleBx1);
+        xAxis.add(rectangleBx2);
+
+        Collections.sort(xAxis);
+
+        List<Integer> yAxis = new ArrayList<>();
+        yAxis.add(rectangleAy1);
+        yAxis.add(rectangleAy2);
+        yAxis.add(rectangleBy1);
+        yAxis.add(rectangleBy2);
+
+        Collections.sort(yAxis);
+
+        for(int i=1 ;i<3; i++){
+            points = points.concat(xAxis.get(i).toString()).concat(" and ");
+        }
+        points = points.concat(" in the X axis ");
+
+        for(int i=1 ;i<3; i++){
+            points = points.concat(yAxis.get(i).toString()).concat(" and ");
+        }
+        points = points.concat(" in the Y axis ");
+
+        return points.concat(", are ");
     }
 }
