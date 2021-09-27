@@ -42,8 +42,8 @@ public class SwaggerConfig {
 
     private ApiInfo metadata() {
         return new ApiInfoBuilder()
-                .title("Fuego de Quasar")
-                .description("Esta es una prueba para mostrar swagger")
+                .title("Nuvalence Test")
+                .description("This is the swagger documentation")
                 .version("1.0.0")
                 .build();
     }
