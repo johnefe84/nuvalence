@@ -35,17 +35,17 @@ public class InformationServiceImplTest {
     public void hasIntersectionTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,2,15,6,25);
+        String message = processTest(1,10,5,20,2,15,6,25);
 
         assertNotNull(Objects.requireNonNull(message));
-        assertEquals(message, "The rectangles are intersected, not contained, not adjacent each other");
+        assertEquals(message, "The rectangles are intersected in points: 2 and 10 and  in the X axis 6 and 20 and  in the Y axis , are not contained, not adjacent each other");
     }
 
     @Test
     public void hasNoIntersectionTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,1,10,21,31);
+        String message = processTest(1,10,5,20,1,10,21,31);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, not contained, not adjacent , are separated each other");
@@ -55,7 +55,7 @@ public class InformationServiceImplTest {
     public void isContainedTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,2,9,6,19);
+        String message = processTest(1,10,5,20,2,9,6,19);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, contained, not adjacent each other");
@@ -65,7 +65,7 @@ public class InformationServiceImplTest {
     public void isNoContainedTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,11,21,6,19);
+        String message = processTest(1,10,5,20,11,21,6,19);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, not contained, not adjacent , are separated each other");
@@ -75,7 +75,7 @@ public class InformationServiceImplTest {
     public void hasAdjacencyTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,10,21,4,19);
+        String message = processTest(1,10,5,20,10,21,4,19);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, not contained, adjacent each other");
@@ -85,7 +85,7 @@ public class InformationServiceImplTest {
     public void hasNoAdjacencyTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,15,11,21,5,15);
+        String message = processTest(1,10,5,15,11,21,5,15);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, not contained, not adjacent , are separated each other");
@@ -95,43 +95,43 @@ public class InformationServiceImplTest {
     public void squaresIntersectedAditionalCase1Test(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,2,20,4,25);
+        String message = processTest(1,10,5,20,2,20,4,25);
 
         assertNotNull(Objects.requireNonNull(message));
-        assertEquals(message, "The rectangles are intersected, not contained, not adjacent each other");
+        assertEquals(message, "The rectangles are intersected in points: 2 and 10 and  in the X axis 5 and 20 and  in the Y axis , are not contained, not adjacent each other");
     }
 
     @Test
     public void squaresIntersectedAditionalCase2Test(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,2,8,4,25);
+        String message = processTest(1,10,5,20,2,8,4,25);
 
         assertNotNull(Objects.requireNonNull(message));
-        assertEquals(message, "The rectangles are intersected, not contained, not adjacent each other");
+        assertEquals(message, "The rectangles are intersected in points: 2 and 8 and  in the X axis 5 and 20 and  in the Y axis , are not contained, not adjacent each other");
     }
 
     @Test
     public void squaresIntersectedAditionalCase3Test(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,2,8,4,15);
+        String message = processTest(1,10,5,20,2,8,4,15);
 
         assertNotNull(Objects.requireNonNull(message));
-        assertEquals(message, "The rectangles are intersected, not contained, not adjacent each other");
+        assertEquals(message, "The rectangles are intersected in points: 2 and 8 and  in the X axis 5 and 15 and  in the Y axis , are not contained, not adjacent each other");
     }
 
     @Test
     public void squaresSeparatedTest(){
         informationServiceImpl = new InformationServiceImpl();
 
-        String message = processtest(1,10,5,20,12,22,25,35);
+        String message = processTest(1,10,5,20,12,22,25,35);
 
         assertNotNull(Objects.requireNonNull(message));
         assertEquals(message, "The rectangles are not intersected, not contained, not adjacent , are separated each other");
     }
 
-    private String processtest(Integer rectangleAx1, Integer rectangleAx2, Integer rectangleAy1, Integer rectangleAy2,
+    private String processTest(Integer rectangleAx1, Integer rectangleAx2, Integer rectangleAy1, Integer rectangleAy2,
                                Integer rectangleBx1, Integer rectangleBx2, Integer rectangleBy1, Integer rectangleBy2){
 
         informationServiceImpl = new InformationServiceImpl();
@@ -147,3 +147,4 @@ public class InformationServiceImplTest {
         return informationServiceImpl.analyseRectangles(information);
     }
 }
+
