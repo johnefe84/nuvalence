@@ -1,4 +1,4 @@
-# mercadolibre
+# Nuvalence
 Created by: John Franklin Ruiz Neira
 
 This webservice is for evaluate two rectangles in order to determinate if them are intersected, contained or have adjacency. 
